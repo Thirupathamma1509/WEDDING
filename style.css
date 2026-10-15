@@ -1,0 +1,73 @@
+:root{--ink:#3a0f2a;--mag:#d81b60;--mari:#ffa000;--gold:#f6c350;--teal:#0f6b5c;--ivory:#fff6e6;--blush:#ffe3e8}
+*{box-sizing:border-box;margin:0}
+body{background:linear-gradient(180deg,#fff6e6,#ffe3e8 45%,#fff0d2);color:var(--ink);font-family:"Marcellus",Georgia,serif;overflow-x:hidden;min-height:100vh}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+#petals svg{position:absolute;top:-50px;animation:fall linear infinite,sway ease-in-out infinite alternate}
+@keyframes fall{to{top:110vh}}
+@keyframes sway{from{margin-left:-30px;rotate:-40deg}to{margin-left:30px;rotate:60deg}}
+
+/* envelope intro */
+#intro{position:fixed;inset:0;z-index:40;display:grid;place-items:center;background:radial-gradient(circle,#ffe9c2,#ffb3c1);transition:opacity 1s,visibility 1s}
+#intro.gone{opacity:0;visibility:hidden}
+#env{background:none;border:0;cursor:pointer;color:var(--ink);font:inherit;text-align:center}
+#env p{margin-top:38px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.3rem}
+#env:focus-visible{outline:3px solid var(--teal);outline-offset:10px}
+.envelope{position:relative;width:min(78vw,320px);height:min(52vw,210px);margin:auto;perspective:800px;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.pocket{position:absolute;inset:0;background:linear-gradient(135deg,#d81b60,#ad1457);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:6px;z-index:3}
+.flap{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(#e91e63,#c2185b);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s .1s,z-index 0s .5s;z-index:4}
+.card-peek{position:absolute;left:8%;right:8%;top:6%;height:88%;background:var(--ivory);border:2px solid var(--gold);border-radius:6px;z-index:2;display:grid;place-content:center;text-align:center;
+  font-family:"Pinyon Script",cursive;font-size:1.9rem;line-height:1.1;transition:transform 1s .5s}
+.card-peek i{font-size:1.2rem;color:var(--mag)}
+.seal{position:absolute;left:50%;top:46%;width:56px;height:56px;margin:-28px;z-index:5;transition:opacity .3s}
+.opened .flap{transform:rotateX(180deg);z-index:1}
+.opened .card-peek{transform:translateY(-70%) scale(1.05)}
+.opened .seal{opacity:0}
+
+/* hero */
+.hero{position:relative;min-height:100vh;padding:150px 20px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.garland{position:absolute;top:0;left:0;right:0;height:130px;display:flex;justify-content:space-around;overflow:hidden}
+.garland .str{position:relative;width:12%;display:flex;flex-direction:column;align-items:center;transform-origin:top;animation:swing 3.4s ease-in-out infinite alternate}
+.garland .str::before{content:"";width:2px;flex:none;background:#2e7d32}
+@keyframes swing{from{rotate:-4deg}to{rotate:4deg}}
+.small{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.25rem}
+h1{font-family:"Pinyon Script",cursive;font-weight:400;display:grid;gap:0;line-height:1}
+h1 span{font-size:clamp(4rem,19vw,6.5rem);background:linear-gradient(90deg,var(--mag),var(--mari),var(--mag));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+h1 .amp{font-size:2.6rem;color:var(--teal);-webkit-text-fill-color:var(--teal);animation:none}
+.n1{animation-name:shine,slideL!important}.n2{animation-name:shine,slideR!important}
+@keyframes shine{to{background-position:200%}}
+@keyframes slideL{from{opacity:0;translate:-60px}}
+@keyframes slideR{from{opacity:0;translate:60px}}
+.arch{width:min(78vw,300px);aspect-ratio:3/4;border-radius:999px 999px 18px 18px;border:5px solid var(--gold);overflow:hidden;position:relative;
+  box-shadow:0 0 0 8px #fff,0 0 0 11px var(--mag),0 24px 50px rgba(216,27,96,.3);background:#fff}
+#heroart,#heroart svg{width:100%;height:100%;display:block}
+.date{font-size:1.5rem;letter-spacing:.12em;color:var(--mag)}
+.scroll{color:var(--teal);font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.15rem;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{translate:0 8px}}
+
+section{max-width:520px;margin:auto;padding:56px 20px;text-align:center}
+h2{font-family:"Pinyon Script",cursive;font-weight:400;font-size:2.8rem;color:var(--mag);margin-bottom:20px}
+.rv{opacity:0;translate:0 40px;transition:opacity 1s,translate 1s}.rv.in{opacity:1;translate:0}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.count div{background:#fff;border:2px solid var(--gold);border-radius:16px 16px 40px 16px;padding:14px 4px;box-shadow:0 8px 20px rgba(255,160,0,.2)}
+.count b{display:block;font-size:2rem;color:var(--teal);font-weight:400}.count span{font-size:.85rem}
+.ev{background:#fff;border-radius:20px;padding:20px;margin-bottom:16px;border-left:8px solid var(--mari);box-shadow:0 10px 26px rgba(58,15,42,.1)}
+.ev:nth-child(2){border-color:var(--mag)}.ev:nth-child(3){border-color:var(--teal)}
+.ev h3{font-weight:400;font-size:1.5rem}.ev p{margin-top:6px}
+.gal{margin:0 auto}
+#slides{position:absolute;inset:0}
+.sl{position:absolute;inset:0;opacity:0;transition:opacity 1.2s}.sl.on{opacity:1}
+.sl img,.sl svg{width:100%;height:100%;object-fit:cover;display:block}
+.sl.on img,.sl.on svg{animation:kb 6s ease-out both}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+#dots{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:2}
+#dots i{width:9px;height:9px;border-radius:50%;background:#fff;opacity:.6}#dots i.on{background:var(--mag);opacity:1}
+.note{margin-top:18px;font-size:.9rem;opacity:.7}
+.venue p{font-size:1.2rem;margin-bottom:6px}
+.btn{display:inline-block;margin-top:18px;padding:14px 32px;border-radius:40px;background:linear-gradient(90deg,var(--mag),var(--mari));color:#fff;text-decoration:none;font-size:1.1rem;box-shadow:0 10px 26px rgba(216,27,96,.35)}
+.btn:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.thanks{margin-top:40px;font-family:"Pinyon Script",cursive;font-size:2rem;color:var(--teal)}
+.heart{animation:rise 4s ease-in infinite;transform-box:fill-box;transform-origin:center}
+@keyframes rise{0%{opacity:0;translate:0 20px}30%{opacity:1}100%{opacity:0;translate:0 -70px}}
+.fl-spin{animation:spin 12s linear infinite;transform-box:fill-box;transform-origin:center}@keyframes spin{to{rotate:360deg}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}

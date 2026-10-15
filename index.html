@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Surya & Joshitha | Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="petals" aria-hidden="true"></div>
+
+<div id="intro">
+  <button id="env" aria-label="Open the invitation">
+    <div class="envelope">
+      <div class="card-peek"><span>Surya</span><i>&amp;</i><span>Joshitha</span></div>
+      <div class="flap"></div><div class="pocket"></div>
+      <div class="seal" id="sealf"></div>
+    </div>
+    <p>You are invited. Tap to open</p>
+  </button>
+</div>
+
+<main id="main" hidden>
+  <header class="hero">
+    <div class="garland" id="garland" aria-hidden="true"></div>
+    <p class="small">With the blessings of our families</p>
+    <h1><span class="n1">Surya</span><span class="amp">&amp;</span><span class="n2">Joshitha</span></h1>
+    <p class="small">invite you to celebrate their wedding</p>
+    <div class="arch"><div id="heroart"></div></div>
+    <p class="date" id="dateText"></p>
+    <a class="scroll" href="#save">Scroll for details</a>
+  </header>
+
+  <section id="save" class="rv">
+    <h2>Save the date</h2>
+    <div class="count" id="count"></div>
+  </section>
+
+  <section class="rv">
+    <h2>Our celebrations</h2>
+    <div id="events"></div>
+  </section>
+
+  <section class="rv">
+    <h2>Our moments</h2>
+    <div class="arch gal"><div id="slides"></div><div id="dots"></div></div>
+    <p class="note">Add your own photos in the photos folder to replace these pictures.</p>
+  </section>
+
+  <section class="rv venue">
+    <h2>Venue</h2>
+    <p id="venueName"></p><p id="venueAddr"></p>
+    <a class="btn" id="mapBtn" target="_blank" rel="noopener">Open in Maps</a>
+  </section>
+
+  <section class="rv rsvp">
+    <h2>Will you join us?</h2>
+    <p>Your presence is the greatest gift. Please let us know you are coming.</p>
+    <a class="btn" id="rsvpBtn" target="_blank" rel="noopener">Confirm on WhatsApp</a>
+    <p class="thanks">With love, Surya &amp; Joshitha</p>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
